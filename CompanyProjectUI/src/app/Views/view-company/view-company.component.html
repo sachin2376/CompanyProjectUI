@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row mt-2 pt-3">
+    <div class="col-xs-12 xs-end">
+      <p class="pageheader">
+          Company Portal
+      </p>
+    </div>
+  </div>
+
+  <form #form="ngForm" >
+
+
+  <div class="row">
+      <div class="col-sm-8 mat-elevation-z8">
+          <!-- here we'll display all details of a single element ! -->
+          <div class="row mt-3">
+            <div class="col-sm-8">
+              <mat-form-field appearance="fill">
+              <mat-label>Company Id</mat-label>
+              <input matInput placeholder="company-Id : Guid " [(ngModel)]="company.companyId" name="companyId" matInput>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint></mat-hint>
+            </mat-form-field>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <mat-form-field appearance="fill">
+              <mat-label>Company Name</mat-label>
+              <input matInput placeholder="company-Name " [(ngModel)]="company.companyName" name="companyName" matInput>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint></mat-hint>
+            </mat-form-field>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <mat-form-field appearance="fill">
+                <mat-label>Location</mat-label>
+                <input matInput placeholder="Location" [(ngModel)]="company.location" name="location" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-4">
+              <mat-form-field appearance="fill">
+                <mat-label>No of Employees </mat-label>
+                <input matInput placeholder="Count" [(ngModel)]="company.count" name="count" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1">  </div>
+            <div class="col-sm-2 back">
+              <a  routerLink="/company" mat-raised-button color="accent">BACK</a>
+            </div>
+
+              <div class="col-sm-2" *ngIf="isNew">
+                <button mat-raised-button (click)="AddCompany()" color="primary">Add</button>
+              </div>
+              <div class="col-sm-2" *ngIf="!isNew">
+                <button mat-raised-button (click)="SaveCompany()" color="primary">SAVE</button>
+              </div>
+              <div class="col-sm-2" *ngIf="!isNew">
+              <button mat-raised-button (click)="DeleteCompany()" color="warn">DELETE</button>
+              </div>
+            <div class="col-sm-1"></div>
+          </div>
+
+        </div>
+
+
+  </div>
+  </form>
+</div>
+
+<router-outlet></router-outlet>
+

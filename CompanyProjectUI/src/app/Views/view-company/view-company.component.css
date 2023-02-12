@@ -1,0 +1,45 @@
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #d92a96;
+}
+
+button
+{
+  width:100%;
+}
+
+.back
+{
+  width: 102.65px;
+  height: 48px;
+}
+.green-snackbar {
+  background: rgb(65, 252, 134);
+  color: white;
+}
+.green-snackbar button {
+  background-color: rgb(65, 252, 134);
+  color: white;
+  border: none;
+}
+.red-snackbar {
+  background: #F44336;
+  color: white;
+}
+.red-snackbar button {
+  background-color: #F44336;
+  color: white !important;
+  border: none;
+}
+
+.carddata
+{
+  margin-left: 2em;
+}
+
+::ng-deep .mat-input-element::placeholder {
+  color: orange;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: red;
+}

@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row mt-2 pt-3">
+    <div class="col-xs-12 xs-end">
+      <p class="pageheader">
+          Company Portal
+      </p>
+    </div>
+  </div>
+
+  <form #form="ngForm" >
+
+
+  <div class="row">
+      <div class="col-sm-8 mat-elevation-z8">
+          <!-- here we'll display all details of a single element ! -->
+          <div class="row mt-3">
+              <div class="col-sm-8">
+                <mat-form-field appearance="fill">
+                  <mat-label>Client Id</mat-label>
+                  <input matInput placeholder="Client-Id : Guid " [(ngModel)]="client.clientId" name="clientId" matInput>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-hint></mat-hint>
+                </mat-form-field>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name " [(ngModel)]="client.firstName" name="firstName" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-4">
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Last Name " [(ngModel)]="client.lastName" name="lastName" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Client Email" [(ngModel)]="client.email" name="email" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="company" [(ngModel)]="client.company.companyName" name="abc" matInput>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <mat-form-field appearance="fill">
+                <mat-label>Birth Date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="client.birthDate" name="birthdate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <mat-form-field appearance="fill">
+                <mat-label>company</mat-label>
+                <mat-select [(ngModel)]="client.company.companyName" name="company">
+                  <mat-option *ngFor="let company of companyList" [value]="company.companyId">
+                    {{company.companyName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <h2> {{ client.company.companyName }} </h2>
+          <div class="row">
+            <div class="col-sm-1">  </div>
+            <div class="col-sm-2 back">
+              <a  routerLink="/company" mat-raised-button color="accent">BACK</a>
+            </div>
+
+              <div class="col-sm-2" *ngIf="isNew">
+                <button mat-raised-button (click)="AddClient()" color="primary">Add</button>
+              </div>
+              <div class="col-sm-2" *ngIf="!isNew">
+                <button mat-raised-button (click)="SaveClient()" color="primary">SAVE</button>
+              </div>
+              <div class="col-sm-2" *ngIf="!isNew">
+              <button mat-raised-button (click)="DeleteClient()" color="warn">DELETE</button>
+              </div>
+            <div class="col-sm-1"></div>
+          </div>
+
+        </div>
+
+
+  </div>
+  </form>
+</div>
+
+<router-outlet></router-outlet>
+

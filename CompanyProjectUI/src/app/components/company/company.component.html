@@ -1,0 +1,71 @@
+
+<div class="container mat-elevation-z8">
+  <div class="row mt-2 pt-3">
+    <div class="col-xs-12 xs-end">
+      <p class="pageheader">
+          Company Portal
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8"> </div>
+
+    <div class="col-sm-2">
+      <input type="text"
+      (keyup)="filterCompanies()"
+      [(ngModel)]="filteredcompanies"
+      class="search-input"
+      placeholder="search company"
+      >
+    </div>
+    <div class="col-sm-2">
+      <a routerLink="add" mat-raised-button color="primary">Add Company</a>
+    </div>
+  </div>
+
+
+  <table class="table table-striped" matSort mat-table [dataSource]="dataSource" >
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="companyName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name  </th>
+      <td mat-cell *matCellDef="let element" > {{element.companyName}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+      <td mat-cell *matCellDef="let element" > {{element.location}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No of Employees </th>
+      <td mat-cell *matCellDef="let element" > {{element.count}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
+      <td mat-cell *matCellDef="let element" >
+        <a [routerLink]="['/company/',element.companyId]" >
+          <mat-icon color="primary">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator style="color: indigo;"
+    [length]="100"
+    [pageSize]="5"
+    [pageSizeOptions]="[5,10,15,20]"
+    aria-label="Select page"
+  >
+
+  </mat-paginator>
+
+</div>
+
+
+<router-outlet> </router-outlet>

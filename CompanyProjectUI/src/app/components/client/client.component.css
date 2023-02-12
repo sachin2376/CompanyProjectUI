@@ -1,0 +1,45 @@
+table{
+  margin-top: 2em;
+}
+
+mat-paginator, mat-paginator.attributes
+{
+  color:indigo;
+}
+
+table, mat-paginator
+{
+  background-color: rgb(230, 235, 233);
+  font-size: larger;
+}
+
+th,td
+{
+  color: Indigo;
+}
+
+th
+{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.search-input
+{
+  height: 35px;
+  width: 180px;
+border: px solid rgb(233, 123, 218);
+outline: none;
+padding: 8px 10px;
+border-radius: 3px;
+}
+
+.search-input:active
+{
+     border: 1px solid #BBB;
+}
+
+.search-input:focus
+{
+  border: 1px solid #AAA;
+}

@@ -36,6 +36,7 @@ export class ViewClientComponent implements OnInit {
         location:''
       }
     }
+    selected:string='option 1';
 
     isNew:boolean = false;
     ngOnInit(): void {
@@ -84,5 +85,12 @@ export class ViewClientComponent implements OnInit {
     DeleteClient()
     {
 
+    }
+
+    compareValues(value1:string,value2:string)
+    {
+      if(value1===value2)
+        return true;
+      return false;
     }
 }

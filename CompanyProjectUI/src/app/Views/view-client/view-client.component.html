@@ -76,15 +76,15 @@
             <div class="col-sm-8">
               <mat-form-field appearance="fill">
                 <mat-label>company</mat-label>
-                <mat-select [(ngModel)]="client.company.companyName" name="company">
-                  <mat-option *ngFor="let company of companyList" [value]="company.companyId">
-                    {{company.companyName}}
-                  </mat-option>
+                <mat-select [(value)]="selected" [compareWith]="compareValues">
+                  <mat-option value="option1">Option 1</mat-option>
+                  <mat-option value="option2">Option 2</mat-option>
+                  <mat-option value="option3">Option 3</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
           </div>
-          <h2> {{ client.company.companyName }} </h2>
+          <h2> {{ selected }} </h2>
           <div class="row">
             <div class="col-sm-1">  </div>
             <div class="col-sm-2 back">
